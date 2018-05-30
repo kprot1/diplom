@@ -1,0 +1,18 @@
+.dashboard {
+    display: inline;
+    padding: 5px;
+    margin: 5px;
+    background-color: #29fcdc;
+    border: 1px solid #3efcb4;
+    font-size: 150%;
+    font-weight: bolder;
+}
+.dashboard a {
+    text-decoration: none;
+    color: #624229;
+}
+
+.title_page {
+    text-align: center;
+    color: #66dd66;
+}

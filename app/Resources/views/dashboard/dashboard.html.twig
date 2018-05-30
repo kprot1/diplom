@@ -6,7 +6,7 @@
             <a href="">Карточка участника</a>
         </div>
         <div class="dashboard">
-            <a href="">Создание нового пользователя</a>
+            <a href="{{ path('user_create') }}">Создание нового пользователя</a>
         </div>
         <div class="dashboard">
             <a href="">Акции</a>
@@ -22,20 +22,4 @@
         </div>
     </section>
 {% endblock %}
-{% block stylesheets %}
-    <style>
-        .dashboard {
-            display: inline;
-            padding: 5px;
-            margin: 5px;
-            background-color: #29fcdc;
-            border: 1px solid #3efcb4;
-            font-size: 150%;
-            font-weight: bolder;
-        }
-        .dashboard a {
-            text-decoration: none;
-            color: #624229;
-        }
-    </style>
-{% endblock %}
+

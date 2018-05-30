@@ -2,12 +2,24 @@
 
 namespace AppBundle\Controller;
 
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class CardController extends Controller
 {
-    public function indexAction($name)
+    /**
+     * @Route(path="/view", name="card_view")
+     */
+    public function viewAction()
     {
-        return $this->render('', array('name' => $name));
+        $this->render('card/view.html.twig',[]);
+    }
+
+    /**
+     * @Route(path="/info/{id}", name="card_info")
+     */
+    public function infoAction()
+    {
+
     }
 }
