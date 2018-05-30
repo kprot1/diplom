@@ -28,9 +28,10 @@ class Card
      */
     private $number;
     /**
-     * @One
+     * @ORM\Column(name="user_id", type="integer")
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\User", mappedBy="Card")
      */
-    private $user;
+    private $userId;
     /**
      * @ORM\Column(type="integer")
      */

@@ -28,11 +28,11 @@ class Action
      */
     private $name;
     /**
-     * @ORM\Column(type="json")
+     * @ORM\Column(type="json_array")
      */
     private $filters;
     /**
-     * @ORM\Column(type="json")
+     * @ORM\Column(type="json_array")
      */
     private $rewards;
 

@@ -36,7 +36,7 @@ class Restriction
      */
     private $restrictionType;
     /**
-     * @ORM\Column(type="json")
+     * @ORM\Column(type="json_array")
      */
     private $filters;
     /**
