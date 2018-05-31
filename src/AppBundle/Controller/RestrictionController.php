@@ -2,9 +2,8 @@
 
 namespace AppBundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-class RestrictionController extends Controller
+class RestrictionController extends AbstractController
 {
     public function indexAction($name)
     {

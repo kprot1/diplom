@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <section style="margin: 25px;">
+        <form action="{{ path('action_create') }}" method="post">
+            {{ form_start(form) }}
+            <div class="row">
+                {{ form_row(form.name) }}
+            </div>
+            <div class="row">
+                {{ form_row(form.rewards) }}
+            </div>
+            <div class="row">
+
+            </div>
+            <div class="row">
+                <input class="btn btn-info" type="submit" value="Создать">
+            </div>
+
+            {{ form_end(form) }}
+        </form>
+    </section>
+{% endblock %}

@@ -3,11 +3,12 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Action;
+use AppBundle\Form\ActionFormType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class ActionController extends Controller
+class ActionController extends AbstractController
 {
     /**
      * Отображение списка всех акций
@@ -27,6 +28,7 @@ class ActionController extends Controller
      * @Route(path="/action/view/{id}", name="action_view")
      *
      * @param int $id
+     * @throws \InvalidArgumentException
      */
     public function viewAction(int $id)
     {
@@ -38,11 +40,27 @@ class ActionController extends Controller
      *
      * @Route(path="/action/create", name="action_create")
      *
-     * @param int $id
+     * @return Response
+     * @throws \LogicException
      */
-    public function createAction(int $id)
+    public function createAction(Request $request): Response
     {
+        $action = new Action();
+        $form = $this->createForm(ActionFormType::class, $action);
 
+        if ($request->isMethod($request::METHOD_POST)) {
+            $form->handleRequest($request);
+            if ($form->isValid()) {
+                $action->setFilters(json_encode([$action->getName()]));
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($action);
+                $em->flush();
+            }
+        }
+
+        return $this->render('action/create.html.twig', [
+            'form' => $form->createView()
+        ]);
     }
 
     /**
@@ -52,8 +70,18 @@ class ActionController extends Controller
      *
      * @param int $id
      */
-    public function editAction(int $id)
+    public function editAction(Request $request, int $id)
     {
+        $action = $this->getDoctrine()->getRepository(Action::class)->findBy(['id' => $id]);
+        if ($action instanceof Action) {
+            $form = $this->createForm(ActionFormType::class, $action);
 
+            if ($request->isMethod($request::METHOD_POST)) {
+                $form->handleRequest($request);
+                if ($form->isValid()) {
+
+                }
+            }
+        }
     }
 }

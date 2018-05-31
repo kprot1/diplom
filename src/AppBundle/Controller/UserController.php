@@ -5,9 +5,8 @@ namespace AppBundle\Controller;
 use AppBundle\Entity\User;
 use AppBundle\Form\UserCreationFormType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-class UserController extends Controller
+class UserController extends AbstractController
 {
     /**
      * @Route(path="/user/create", name="user_create")

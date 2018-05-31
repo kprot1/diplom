@@ -3,9 +3,8 @@
 namespace AppBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-class CardController extends Controller
+class CardController extends AbstractController
 {
     /**
      * @Route(path="/view", name="card_view")

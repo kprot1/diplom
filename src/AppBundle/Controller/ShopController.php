@@ -2,9 +2,7 @@
 
 namespace AppBundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-
-class ShopController extends Controller
+class ShopController extends AbstractController
 {
     public function indexAction($name)
     {
