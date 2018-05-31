@@ -1,5 +1,30 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    Авторизация пользователя
+    <section class="text-left" style="margin: 250px;">
+        <form action="" method="post">
+            <div class="row">
+                <section class="col col-lg-2 col-md-2 col-sm-2 col-xs-2 text-center" style="margin: 5px;">
+                    <h3 style="color: #00CCFF; font-weight: bold">
+                        LOG IN
+                    </h3>
+                </section>
+            </div>
+            <div class="row">
+                <div class="col col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                    <input class="input-sm alert-info auth_input" style="width: 100%; margin: 5px; " type="text" name="login" placeholder="Username or email">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                    <input class="input-sm alert-info auth_input" style="width: 100%; margin: 5px;" type="password" name="password" placeholder="password">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                    <input class="btn btn-success" style="width: 100%; margin: 5px;" type="submit" name="submit" value="Авторизоваться">
+                </div>
+            </div>
+        </form>
+    </section>
 {% endblock %}
