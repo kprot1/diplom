@@ -4,14 +4,92 @@
     <div class="title_page">
         <h1>Создание нового пользователя</h1>
     </div>
-    <form action="">
+    <form action="{{ path('user_create') }}" method="post">
+        {{ form_start(form) }}
         <div class="row">
-            <div class="col col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                12
-            </div>
-            <div class="col col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                12
-            </div>
+            <section class="col col-lg-2 text-right">
+                <h4>Роль</h4>
+            </section>
+            <section class="col col-lg-2">
+                {{ form_row(form.role) }}
+            </section>
         </div>
+        <div class="row">
+            <section class="col col-lg-2 text-right">
+                <h4>Фамилия</h4>
+            </section>
+            <section class="col col-lg-2">
+                {{ form_row(form.second_name) }}
+            </section>
+        </div>
+        <div class="row">
+            <section class="col col-lg-2 text-right">
+                <h4>Имя</h4>
+            </section>
+            <section class="col col-lg-2">
+                {{ form_row(form.first_name) }}
+            </section>
+        </div>
+        <div class="row">
+            <section class="col col-lg-2 text-right">
+                <h4>Отчество</h4>
+            </section>
+            <section class="col col-lg-2">
+                {{ form_row(form.middle_name) }}
+            </section>
+        </div>
+        <div class="row">
+            <section class="col col-lg-2 text-right">
+                <h4>Логин</h4>
+            </section>
+            <section class="col col-lg-2">
+                {{ form_row(form.login) }}
+            </section>
+        </div>
+        <div class="row">
+            <section class="col col-lg-2 text-right">
+                <h4>Пароль</h4>
+            </section>
+            <section class="col col-lg-2">
+                {{ form_row(form.password) }}
+            </section>
+        </div><div class="row">
+            <section class="col col-lg-2 text-right">
+                <h4>Email</h4>
+            </section>
+            <section class="col col-lg-2">
+                {{ form_row(form.email) }}
+            </section>
+        </div>
+        <div class="row">
+            <section class="col col-lg-2 text-right">
+                <h4>Пол</h4>
+            </section>
+            <section class="col col-lg-2">
+                {{ form_row(form.gender) }}
+            </section>
+        </div>
+        <div class="row">
+            <section class="col col-lg-2 text-right">
+                <h4>Дата рождения</h4>
+            </section>
+            <section class="col col-lg-2">
+                {{ form_row(form.birthday) }}
+            </section>
+        </div>
+        <div class="row">
+            <section class="col col-lg-2 text-right">
+                <h4>Подписка на рассылки</h4>
+            </section>
+            <section class="col col-lg-2">
+                {{ form_row(form.is_distribution) }}
+            </section>
+        </div>
+        <div class="row">
+            <section class="col col-lg-2 text-right">
+                <input class="btn btn-info" type="submit" value="Создать">
+            </section>
+        </div>
+        {{ form_end(form) }}
     </form>
 {% endblock %}
