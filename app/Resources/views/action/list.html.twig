@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    Список акций
+    <table>
+        <th>
+            <td>id</td>
+            <td>Название акции</td>
+        </th>
+        {% for action in actions %}
+            <tr>
+                <td>{{ action.id }}</td>
+                <td><a href="{{ path('action_view',{'id' : action.id}) }}">{{ action.name }}</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
