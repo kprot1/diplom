@@ -28,10 +28,18 @@ class ActionController extends AbstractController
      * @Route(path="/action/view/{id}", name="action_view")
      *
      * @param int $id
+     * @return Response
+     * @throws \LogicException
      * @throws \InvalidArgumentException
      */
-    public function viewAction(int $id)
+    public function viewAction(int $id): Response
     {
+        $action = $this->getDoctrine()->getRepository(Action::class)->find($id);
+        if ($action instanceof Action) {
+            return $this->render('action/view.html.twig', [
+                'action' => $action
+            ]);
+        }
         return new Response('123');
     }
 
@@ -40,6 +48,7 @@ class ActionController extends AbstractController
      *
      * @Route(path="/action/create", name="action_create")
      *
+     * @param Request $request
      * @return Response
      * @throws \LogicException
      */
@@ -52,9 +61,7 @@ class ActionController extends AbstractController
             $form->handleRequest($request);
             if ($form->isValid()) {
                 $action->setFilters(json_encode([$action->getName()]));
-                $em = $this->getDoctrine()->getManager();
-                $em->persist($action);
-                $em->flush();
+                $this->saveEntity($action);
             }
         }
 
@@ -68,20 +75,28 @@ class ActionController extends AbstractController
      *
      * @Route(path="/action/edit/{id}", name="action_edit")
      *
+     * @param Request $request
      * @param int $id
+     * @return Response
+     * @throws \LogicException
      */
-    public function editAction(Request $request, int $id)
+    public function editAction(Request $request, int $id): Response
     {
-        $action = $this->getDoctrine()->getRepository(Action::class)->findBy(['id' => $id]);
+        $action = $this->getDoctrine()->getRepository(Action::class)->find($id);
         if ($action instanceof Action) {
             $form = $this->createForm(ActionFormType::class, $action);
 
             if ($request->isMethod($request::METHOD_POST)) {
                 $form->handleRequest($request);
                 if ($form->isValid()) {
-
+                    $this->saveEntity($action);
                 }
             }
+
+            return $this->render('action/edit.html.twig', [
+                'form' => $form
+            ]);
         }
+        return new Response('123');
     }
 }
