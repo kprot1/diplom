@@ -32,15 +32,11 @@ class Restriction
      */
     private $type;
     /**
-     * @ORM\Column(type="string")
-     */
-    private $restrictionType;
-    /**
      * @ORM\Column(type="json_array")
      */
     private $filters;
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="integer")
      */
     private $percent;
 

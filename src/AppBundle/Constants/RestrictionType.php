@@ -16,4 +16,10 @@ class RestrictionType
     public const RESTRICTION_USE = 2;
 
     public const RESTRICTION_DISCOUNT = 3;
+
+    public const ALL_RESTRICTIONS = [
+        'Начисление' => self::RESTRICTION_ACCRUAL,
+        'Списание' => self::RESTRICTION_USE,
+        'Скидка' => self::RESTRICTION_DISCOUNT
+    ];
 }
