@@ -11,6 +11,24 @@
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body background="{{ asset('image/background.jpg') }}">
+        <div class="dashboard">
+            <a href="">Карточка покупателя</a>
+        </div>
+        <div class="dashboard">
+            <a href="{{ path('user_create') }}">Создание нового пользователя</a>
+        </div>
+        <div class="dashboard">
+            <a href="{{ path('action_list') }}">Акции</a>
+        </div>
+        <div class="dashboard">
+            <a href="{{ path('restriction_list') }}">Ограничения</a>
+        </div>
+        <div class="dashboard">
+            <a href="">Магазины</a>
+        </div>
+        <div class="dashboard">
+            <a href="">Отчеты</a>
+        </div>
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
     </body>

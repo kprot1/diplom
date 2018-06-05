@@ -2,24 +2,27 @@
 
 {% block body %}
     <section>
-        <div class="dashboard">
-            <a href="">Карточка покупателя</a>
-        </div>
-        <div class="dashboard">
-            <a href="{{ path('user_create') }}">Создание нового пользователя</a>
-        </div>
-        <div class="dashboard">
-            <a href="{{ path('action_list') }}">Акции</a>
-        </div>
-        <div class="dashboard">
-            <a href="{{ path('restriction_list') }}">Ограничения</a>
-        </div>
-        <div class="dashboard">
-            <a href="">Магазины</a>
-        </div>
-        <div class="dashboard">
-            <a href="">Отчеты</a>
+        <div class="row">
+            <section class="col col-lg-5 col-sm-5 col-md-5 col-xs-5 text-center">
+                <h4 style="color: #ffedca">График продаж</h4>
+                <img style="margin: 10px; margin-left: 25px" src="{{ asset('image/1.png') }}" alt="">
+            </section>
+            <section class="col col-lg-3 col-sm-3 col-md-3 col-xs-3 text-center">
+                <h4 style="color: #ffedca">Продажи</h4>
+                <img style="vertical-align: top; margin: 10px;" src="{{ asset('image/2.png') }}" alt="">
+            </section>
+            <section class="col col-lg-3 col-sm-3 col-md-3 col-xs-3 text-center">
+                <h4 style="color: #ffedca;">Средняя стоимость продукции</h4>
+                <img style="vertical-align: top; margin: 10px;" src="{{ asset('image/3.png') }}" alt="">
+            </section>
+            <section class="col col-lg-3 col-sm-3 col-md-3 col-xs-3 text-center">
+                <h4 style="color: #ffedca">Продажи за сезон</h4>
+                <img style="margin: 10px; margin-left: 25px;" src="{{ asset('image/4.png') }}" alt="">
+            </section>
+            <section class="col col-lg-3 col-sm-3 col-md-3 col-xs-3 text-center">
+                <h4 style="color: #ffedca;">Бюджет</h4>
+                <img style="margin: 10px;" src="{{ asset('image/5.png') }}" alt="">
+            </section>
         </div>
     </section>
 {% endblock %}
-

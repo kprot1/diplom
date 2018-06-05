@@ -1,10 +1,10 @@
 .dashboard {
-    width: 20%;
-    text-align: center;
+    display: inline;
     padding: 5px;
     margin: 5px;
     background-color: #29fcdc;
     border: 1px solid #3efcb4;
+    font-size: 150%;
     font-weight: bolder;
 }
 .dashboard a {
