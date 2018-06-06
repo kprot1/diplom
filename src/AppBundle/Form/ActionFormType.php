@@ -5,6 +5,7 @@ namespace AppBundle\Form;
 use AppBundle\Constants\ActionReward;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -15,11 +16,20 @@ class ActionFormType extends AbstractType
     {
         $builder->add('name', TextType::class, [
             'label' => false,
-            'required' => true
+            'required' => true,
+            'attr' => [
+                'placeholder' => 'Action name',
+            ]
         ]);
-        $builder->add('rewards', ChoiceType::class, [
+        $builder->add('typeReward', ChoiceType::class, [
             'label' => false,
-            'choices' => ActionReward::REWARDS
+            'choices' => ActionReward::REWARDS,
+        ]);
+        $builder->add('percentReward', IntegerType::class, [
+            'label' => false,
+            'attr' => [
+                'placeholder' => 'Reward percent'
+            ]
         ]);
     }
 

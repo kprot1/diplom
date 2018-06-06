@@ -60,8 +60,10 @@ class ActionController extends AbstractController
         if ($request->isMethod($request::METHOD_POST)) {
             $form->handleRequest($request);
             if ($form->isValid()) {
+                $action->setRewards('1');
                 $action->setFilters(json_encode([$action->getName()]));
                 $this->saveEntity($action);
+                return $this->render('action/list.html.twig', []);
             }
         }
 

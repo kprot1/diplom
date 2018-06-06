@@ -2,21 +2,36 @@
 
 {% block body %}
     <section style="margin: 25px;">
+        <section class="row">
+            <section class="col col-xs-4 col-md-4 col-lg-4 col-sm-4 text-center">
+                <h2 style="color: #e8f4d4;">Создание новой акции</h2>
+            </section>
+        </section>
         <form action="{{ path('action_create') }}" method="post">
             {{ form_start(form) }}
-            <div class="row">
-                {{ form_row(form.name) }}
-            </div>
-            <div class="row">
-                {{ form_row(form.rewards) }}
-            </div>
-            <div class="row">
-
-            </div>
-            <div class="row">
-                <input class="btn btn-info" type="submit" value="Создать">
-            </div>
-
+                <section class="row">
+                    <section class="col col-xs-2 col-lg-2 col-md-2 col-sm-2">
+                        <h4 style="color: #ffedca">Введите название акции</h4>
+                        {{ form_row(form.name) }}
+                    </section>
+                </section>
+                <section class="row">
+                    <section class="col col-xs-2 col-lg-2 col-md-2 col-sm-2">
+                        <h4 style="color: #ffedca">Выберите тип вознаграждения</h4>
+                        {{ form_row(form.typeReward) }}
+                    </section>
+                </section>
+                <section class="row">
+                    <section class="col col-xs-2 col-lg-2 col-md-2 col-sm-2">
+                        <h4 style="color: #ffedca">Введите процент</h4>
+                        {{ form_row(form.percentReward) }}
+                    </section>
+                </section>
+                <section class="row" style="margin-top: 10px;">
+                    <section class="col col-xs-2 col-lg-2 col-md-2 col-sm-2">
+                        <input type="submit" class="btn btn-info" style="width: 90%" value="Создать">
+                    </section>
+                </section>
             {{ form_end(form) }}
         </form>
     </section>

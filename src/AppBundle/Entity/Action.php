@@ -37,6 +37,16 @@ class Action
     private $rewards;
 
     /**
+     * @var
+     */
+    private $typeReward;
+
+    /**
+     * @var int
+     */
+    private $percentReward;
+
+    /**
      * @return mixed
      */
     public function getId()
@@ -95,8 +105,40 @@ class Action
     /**
      * @param mixed $rewards
      */
-    public function setRewards($rewards): void
+    public function setRewards($rewards)
     {
         $this->rewards = $rewards;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTypeReward()
+    {
+        return $this->typeReward;
+    }
+
+    /**
+     * @param mixed $typeReward
+     */
+    public function setTypeReward($typeReward)
+    {
+        $this->typeReward = $typeReward;
+    }
+
+    /**
+     * @return int
+     */
+    public function getPercentReward()
+    {
+        return $this->percentReward;
+    }
+
+    /**
+     * @param int $percentReward
+     */
+    public function setPercentReward(int $percentReward)
+    {
+        $this->percentReward = $percentReward;
     }
 }
