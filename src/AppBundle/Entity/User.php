@@ -1,13 +1,9 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: User
- * Date: 030 30.05.18
- * Time: 0:02
- */
 
 namespace AppBundle\Entity;
 
+use AppBundle\Constants\DistributionType;
+use AppBundle\Constants\Gender;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -231,6 +227,11 @@ class User
         return $this->gender;
     }
 
+    public function getHumanizedGender()
+    {
+        return Gender::getHumanizedGender($this->gender);
+    }
+
     /**
      * @param mixed $gender
      */
@@ -261,6 +262,11 @@ class User
     public function getisDistribution()
     {
         return $this->isDistribution;
+    }
+
+    public function getHumanizedIsDistribution()
+    {
+        return DistributionType::getHumanizedType($this->isDistribution);
     }
 
     /**

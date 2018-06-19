@@ -1,13 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: User
- * Date: 030 30.05.18
- * Time: 0:18
- */
 
 namespace AppBundle\Entity;
-
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -48,7 +41,7 @@ class Card
     /**
      * @param mixed $id
      */
-    public function setId($id): void
+    public function setId($id)
     {
         $this->id = $id;
     }
@@ -64,7 +57,7 @@ class Card
     /**
      * @param mixed $number
      */
-    public function setNumber($number): void
+    public function setNumber($number)
     {
         $this->number = $number;
     }
@@ -72,17 +65,17 @@ class Card
     /**
      * @return mixed
      */
-    public function getUser()
+    public function getUserId()
     {
-        return $this->user;
+        return $this->userId;
     }
 
     /**
-     * @param mixed $user
+     * @param mixed $userId
      */
-    public function setUser($user): void
+    public function setUserId($userId)
     {
-        $this->user = $user;
+        $this->userId = $userId;
     }
 
     /**
@@ -96,7 +89,7 @@ class Card
     /**
      * @param mixed $amountBonuses
      */
-    public function setAmountBonuses($amountBonuses): void
+    public function setAmountBonuses($amountBonuses)
     {
         $this->amountBonuses = $amountBonuses;
     }

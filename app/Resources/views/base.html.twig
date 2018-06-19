@@ -9,10 +9,11 @@
             <link rel="stylesheet" href="{{ asset('css/bootstrap/bootstrap-theme.min.css') }}">
         {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
     </head>
     <body background="{{ asset('image/background.jpg') }}">
         <div class="dashboard">
-            <a href="">Карточка покупателя</a>
+            <a href="{{ path('card_view') }}">Карточка покупателя</a>
         </div>
         <div class="dashboard">
             <a href="{{ path('user_create') }}">Создание нового пользователя</a>

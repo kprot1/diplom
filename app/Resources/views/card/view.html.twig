@@ -1,11 +1,97 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <form action="">
-        <div>
-            <label for="card_number_filter">Введите номер карты</label>
-            <input type="card_number_filter" name="card_number_filter">
-        </div>
-        <input type="submit" value="Найти">
-    </form>
+    <section id="container">
+        <section class="row" style="margin: 25px;">
+            <section class="table-bordered col col-xs-2 col-sm-2 col-lg-2 col-md-2">
+                <form action="{{ path('card_view') }}" method="post">
+                    <section class="text-center">
+                        <h4><label style="color: #ffedca" for="card_number_filter">Введите номер карты</label></h4>
+                        <input type="number" name="card_number_filter" value="{{ card.number }}">
+                    </section>
+                    <section class="text-center" style="margin: 5px;">
+                        <input type="submit" class="btn btn-info" style="width: 50%" value="Найти">
+                    </section>
+                </form>
+            </section>
+        </section>
+
+        <section v-if="isShow">
+            <section class="row">
+                <section class="col col-xs-2 col-sm-2 col-lg-2 col-md-2 text-right">
+                    <h4 style="color: #ffedca">Номер карты</h4>
+                </section>
+                <section class="col col-xs-2 col-sm-2 col-lg-2 col-md-2 text-left">
+                    <h4 style="color: #f0ad4e">{{ card.number }}</h4>
+                </section>
+            </section>
+            <section class="row">
+                <section class="col col-xs-2 col-sm-2 col-lg-2 col-md-2 text-right">
+                    <h4 style="color: #ffedca">Фамилия</h4>
+                </section>
+                <section class="col col-xs-2 col-sm-2 col-lg-2 col-md-2 text-left">
+                    <h4 style="color: #f0ad4e">{{ user.secondName }}</h4>
+                </section>
+            </section>
+            <section class="row">
+                <section class="col col-xs-2 col-sm-2 col-lg-2 col-md-2 text-right">
+                    <h4 style="color: #ffedca">Имя</h4>
+                </section>
+                <section class="col col-xs-2 col-sm-2 col-lg-2 col-md-2 text-left">
+                    <h4 style="color: #f0ad4e">{{ user.firstName }}</h4>
+                </section>
+            </section>
+            <section class="row">
+                <section class="col col-xs-2 col-sm-2 col-lg-2 col-md-2 text-right">
+                    <h4 style="color: #ffedca">Отчество</h4>
+                </section>
+                <section class="col col-xs-2 col-sm-2 col-lg-2 col-md-2 text-left">
+                    <h4 style="color: #f0ad4e">{{ user.middleName }}</h4>
+                </section>
+            </section>
+            <section class="row">
+                <section class="col col-xs-2 col-sm-2 col-lg-2 col-md-2 text-right">
+                    <h4 style="color: #ffedca">Логин</h4>
+                </section>
+                <section class="col col-xs-2 col-sm-2 col-lg-2 col-md-2 text-left">
+                    <h4 style="color: #f0ad4e">{{ user.login }}</h4>
+                </section>
+            </section>
+            <section class="row">
+                <section class="col col-xs-2 col-sm-2 col-lg-2 col-md-2 text-right">
+                    <h4 style="color: #ffedca">Почта</h4>
+                </section>
+                <section class="col col-xs-2 col-sm-2 col-lg-2 col-md-2 text-left">
+                    <h4 style="color: #f0ad4e">{{ user.email }}</h4>
+                </section>
+            </section>
+            <section class="row">
+                <section class="col col-xs-2 col-sm-2 col-lg-2 col-md-2 text-right">
+                    <h4 style="color: #ffedca">Дата рождения</h4>
+                </section>
+                <section class="col col-xs-2 col-sm-2 col-lg-2 col-md-2 text-left">
+                    <h4 style="color: #f0ad4e">{{ user.birthday|date("d.m.Y") }}</h4>
+                </section>
+            </section>
+            <section class="row">
+                <section class="col col-xs-2 col-sm-2 col-lg-2 col-md-2 text-right">
+                    <h4 style="color: #ffedca">Подписка на рассылки</h4>
+                </section>
+                <section class="col col-xs-2 col-sm-2 col-lg-2 col-md-2 text-left">
+                    <h4 style="color: #f0ad4e">{{ user.humanizedIsDistribution }}</h4>
+                </section>
+            </section>
+        </section>
+    </section>
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+        var app = new Vue({
+            el: '#container',
+            data: {
+                isShow: {{ user is null ? false : true }}
+            }
+        });
+    </script>
 {% endblock %}

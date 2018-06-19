@@ -99,6 +99,6 @@ class ActionController extends AbstractController
                 'form' => $form
             ]);
         }
-        return new Response('123');
+        $this->redirect('action/list.html.twig');
     }
 }

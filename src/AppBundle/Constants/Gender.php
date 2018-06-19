@@ -1,13 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: User
- * Date: 031 31.05.18
- * Time: 1:13
- */
 
 namespace AppBundle\Constants;
-
 
 class Gender
 {
@@ -21,4 +14,16 @@ class Gender
         'Женский' => self::GENDER_FEMALE,
         'Любой' => self::GENDER_ANY
     ];
+
+    /**
+     * @param string $type
+     * @return false|int|string
+     */
+    public static function getHumanizedGender(string $type)
+    {
+        if (in_array($type, self::ALL_GENDERS)) {
+            return array_search($type, self::ALL_GENDERS);
+        }
+        return 'Неизвестно';
+    }
 }

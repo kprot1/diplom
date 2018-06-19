@@ -2,7 +2,6 @@
 
 namespace AppBundle\Controller;
 
-
 use AppBundle\Entity\Restriction;
 use AppBundle\Form\RestrictionFormType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
