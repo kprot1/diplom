@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use AppBundle\Constants\RestrictionType;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -74,27 +75,19 @@ class Restriction
     }
 
     /**
+     * @return false|int|string
+     */
+    public function getHumanizedType()
+    {
+        return RestrictionType::getHumanizedRestriction($this->type);
+    }
+
+    /**
      * @param mixed $type
      */
     public function setType($type): void
     {
         $this->type = $type;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getRestrictionType()
-    {
-        return $this->restrictionType;
-    }
-
-    /**
-     * @param mixed $restrictionType
-     */
-    public function setRestrictionType($restrictionType): void
-    {
-        $this->restrictionType = $restrictionType;
     }
 
     /**

@@ -22,4 +22,12 @@ class RestrictionType
         'Списание' => self::RESTRICTION_USE,
         'Скидка' => self::RESTRICTION_DISCOUNT
     ];
+
+    public static function getHumanizedRestriction(int $type)
+    {
+        if (in_array($type, self::ALL_RESTRICTIONS)) {
+            return array_search($type, self::ALL_RESTRICTIONS);
+        }
+        return 'Неизвестно';
+    }
 }
